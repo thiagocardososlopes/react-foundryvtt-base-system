@@ -1,0 +1,96 @@
+.rpg-roll-dialog {
+    .window-content {
+        background-image: none !important;
+        background-color: #1a1a1a !important;
+        color: #eee !important;
+        padding: 15px !important;
+    }
+
+    .dialog-content {
+        background: transparent !important;
+        padding-bottom: 10px;
+    }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 12px;
+
+        label {
+            flex: 0 0 auto;
+            font-weight: bold;
+            color: #ffbd69;
+            text-shadow: none !important;
+            margin: 0;
+        }
+
+        select, input {
+            flex: 1;
+            
+            background-color: #333 !important; 
+            background-image: none !important;
+            color: #fff !important;
+            border: 1px solid #555 !important;
+            
+            border-radius: 4px;
+            padding: 5px 10px;
+            height: 32px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+
+            &:focus {
+                outline: none;
+                border-color: #ff6400 !important;
+                box-shadow: 0 0 5px rgba(255, 100, 0, 0.4);
+            }
+        }
+
+        select option {
+            background-color: #333;
+            color: white;
+        }
+    }
+
+    .dialog-tip {
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #333;
+        font-size: 0.85em;
+        color: #888;
+        text-align: center;
+        font-style: italic;
+    }
+
+    .dialog-buttons {
+        gap: 10px;
+        
+        button {
+            background: #444;
+            color: #eee;
+            border: 1px solid #222;
+            height: 38px;
+            line-height: 36px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+
+            &:hover {
+                background: #555;
+                color: #fff;
+            }
+
+            &.default {
+                background: linear-gradient(to bottom, #7a0000, #500000);
+                border-color: #ff6400;
+                color: #fff;
+                text-shadow: 0 1px 2px black;
+
+                &:hover {
+                    background: linear-gradient(to bottom, #9a0000, #700000);
+                    box-shadow: 0 0 8px rgba(255, 100, 0, 0.5);
+                }
+            }
+        }
+    }
+}

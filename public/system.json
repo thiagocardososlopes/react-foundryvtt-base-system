@@ -1,0 +1,23 @@
+{
+  "id": "meu-sistema-v13",
+  "title": "Meu Sistema React V13 Teste atualização",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351"
+  },
+  "authors": [
+    {
+      "name": "Thiago Cardoso",
+      "email": "thiagocardososlopes@gmail.com",
+      "url": "https://github.com/thiagocardososlopes"
+    }
+  ],
+  "esmodules": ["main.js"],
+  "styles": ["style.css"],
+  "template": "template.json",
+  "background": "",
+  "url": "",
+  "manifest": "",
+  "download": ""
+}

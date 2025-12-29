@@ -1,0 +1,34 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "attributes": {
+          "hp": { "value": 0, "max": 0 }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "attributes": {
+        "str": { "value": 0 },
+        "dex": { "value": 0 },
+        "con": { "value": 0 },
+        "int": { "value": 0 },
+        "wis": { "value": 0 },
+        "cha": { "value": 0 }
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "attributes": {
+        "cr": { "value": 1 }
+      }
+    }
+  },
+  "Item": {
+    "types": ["item", "spell"],
+    "item": {},
+    "spell": {}
+  }
+}
