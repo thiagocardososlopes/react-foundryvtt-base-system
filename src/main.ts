@@ -1,17 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import './styles/main.scss';
 import { ActorSheetV13 } from './sheets/ActorSheetV13';
+import { registerCombatInitiative } from './utils/combat/registerCombatInitiative';
 
 Hooks.once('init', () => {
+    Actors.unregisterSheet("core", ActorSheet);
+    Actors.registerSheet("meu-sistema", ActorSheetV13 as any, { makeDefault: true });
 
-  Actors.unregisterSheet('core', ActorSheet);
+    CONFIG.Combat.initiative = {
+        formula: "1d20 + @system.attributes.dex.value",
+        decimals: 2
+    };
 
-  Actors.registerSheet('meu-sistema-v13', ActorSheetV13 as any, {
-    types: ['character', 'npc'],
-    makeDefault: true,
-    label: "Ficha React V13"
-  });
+    registerCombatInitiative();
 });
 
 Hooks.once('ready', () => {
-  console.log('MEU SISTEMA REACT V13 | Pronto!');
+    console.log('SYSTEM REACT V13 | Ready!');
 });

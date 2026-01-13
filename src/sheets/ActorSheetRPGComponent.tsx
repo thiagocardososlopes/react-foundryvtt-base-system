@@ -1,6 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable react-hooks/set-state-in-effect */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React, { useState, useEffect } from 'react';
 import { rollDice } from '../utils/rollDice';
 import { ATTRIBUTE_CONFIG } from '../utils/constants';
+import { showInitiativeDialog } from '../utils/combat/showInitiativeDialog';
 
 interface Props {
   actor: any;
@@ -20,7 +25,6 @@ export const ActorSheetRPGComponent: React.FC<Props> = ({ actor }) => {
   const validateChanges = (): boolean => {
     const finalName = pendingChanges["name"] !== undefined ? pendingChanges["name"] : actor.name;
     if (!finalName || finalName.trim() === "") {
-        // @ts-ignore
         ui.notifications.error("O personagem precisa de um nome para ser salvo!");
         return false;
     }
@@ -36,11 +40,9 @@ export const ActorSheetRPGComponent: React.FC<Props> = ({ actor }) => {
             console.log("Salvando alterações:", pendingChanges);
             try {
                 await actor.update(pendingChanges);
-                // @ts-ignore
                 ui.notifications.info("Ficha salva com sucesso.");
             } catch (err) {
                 console.error(err);
-                // @ts-ignore
                 ui.notifications.error("Erro ao salvar no banco de dados.");
                 return;
             }
@@ -66,7 +68,6 @@ export const ActorSheetRPGComponent: React.FC<Props> = ({ actor }) => {
 
   const handleImageClick = () => {
       if (isEditing) {
-          // @ts-ignore
           new FilePicker({
               type: "image",
               callback: (path: string) => {
@@ -153,6 +154,33 @@ export const ActorSheetRPGComponent: React.FC<Props> = ({ actor }) => {
               }}
               placeholder={isEditing ? "Obrigatório" : ""}
             />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <label style={{ fontSize: '0.8em', color: '#aaa', marginBottom: '5px' }}>INICIATIVA</label>
+            <button
+                onClick={() => showInitiativeDialog(actor)}
+                title="Entrar em Combate e Rolar Iniciativa"
+                style={{
+                    background: 'linear-gradient(135deg, #ff6400 0%, #ff0000 100%)',
+                    color: 'white',
+                    border: '1px solid #ff6400',
+                    borderRadius: '50%',
+                    width: '50px',
+                    height: '50px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 0 10px rgba(255, 100, 0, 0.5)',
+                    fontSize: '1.5em',
+                    transition: 'transform 0.2s'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
+                <i className="fas fa-fist-raised"></i>
+            </button>
         </div>
       </div>
 
