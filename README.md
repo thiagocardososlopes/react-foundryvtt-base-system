@@ -17,7 +17,6 @@ This project bridges Foundry's **Application V2** API with React's, featuring a 
 - [🔧 Customization](#-customization)
   - [Adding Attributes](#adding-attributes)
   - [Changing Validation](#changing-validation)
-- [📝 License](#-license)
 
 ---
 
